@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AppToAppCallViewController" customModule="ClientSDK_iOSApp" customModuleProvider="target">
+            <connections>
+                <outlet property="callButton" destination="j4b-de-e2i" id="nRg-y2-lOY"/>
+                <outlet property="phoneNumberField" destination="902-d3-ydR" id="DL0-8D-P3z"/>
+                <outlet property="statusLabel" destination="EnC-Mt-cc5" id="Lfh-7A-x0l"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j4b-de-e2i">
+                    <rect key="frame" x="157" y="398" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="EFF-BU-hy2"/>
+                        <constraint firstAttribute="width" constant="100" id="lrc-aE-C1j"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Call"/>
+                    <connections>
+                        <action selector="callButtonTapped:" destination="-1" eventType="touchUpInside" id="EwS-Xx-ush"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnC-Mt-cc5">
+                    <rect key="frame" x="10" y="598" width="394" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="4915124874385" borderStyle="roundedRect" placeholder="Enter Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="902-d3-ydR">
+                    <rect key="frame" x="10" y="95" width="394" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
+                </textField>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="EnC-Mt-cc5" secondAttribute="trailing" constant="10" id="3jD-Sx-XQE"/>
+                <constraint firstItem="j4b-de-e2i" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="EMn-IG-VXT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="902-d3-ydR" secondAttribute="trailing" constant="10" id="O0E-8S-GYD"/>
+                <constraint firstItem="EnC-Mt-cc5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="RSn-Ol-cpd"/>
+                <constraint firstItem="902-d3-ydR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="SvN-Bc-zbZ"/>
+                <constraint firstItem="EnC-Mt-cc5" firstAttribute="top" secondItem="j4b-de-e2i" secondAttribute="bottom" constant="100" id="VkU-C4-beR"/>
+                <constraint firstItem="j4b-de-e2i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Yy0-xi-ZZU"/>
+                <constraint firstItem="902-d3-ydR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="51" id="yUt-bA-n3t"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="80"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

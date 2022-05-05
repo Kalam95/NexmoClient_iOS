@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'ClientSDK_iOSApp' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for ClientSDK_iOSApp
+
+ pod 'NexmoClient'
+  target 'ClientSDK_iOSAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'ClientSDK_iOSAppUITests' do
+    # Pods for testing
+  end
+
+end
