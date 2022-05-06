@@ -40,7 +40,7 @@ class AppListViewController: UIViewController {
 
     @objc private func createNewButtonTapped() {
         showInputAlert(title: "Creat App", message: "Enter a name for the app, to be created.", handler: ("Create", {[weak self] name in
-            guard let name = name, name.isEmpty else {
+            guard let name = name, !name.isEmpty else {
                 self?.showOkeyAlert(message: "Please!!! Enter a valid name of the app.")
                 return
             }
