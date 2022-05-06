@@ -37,7 +37,7 @@ class ChatListViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addNewConversation))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: " + ", style: .plain, target: self, action: #selector(addNewConversation))
     }
 
     @objc func addNewConversation() {

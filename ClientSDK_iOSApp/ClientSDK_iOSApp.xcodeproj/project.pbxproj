@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		2677DB3AC8D44730E57CF3B6 /* Pods_ClientSDK_iOSAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6E4DC836266383852A80BA /* Pods_ClientSDK_iOSAppTests.framework */; };
-		971BDA922823D191005417A1 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDA7A2823D191005417A1 /* ChatViewController.swift */; };
-		971BDA932823D191005417A1 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDA7B2823D191005417A1 /* ChatViewController.xib */; };
-		971BDA942823D191005417A1 /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDA7D2823D191005417A1 /* ChatViewCell.swift */; };
-		971BDA952823D191005417A1 /* ChatViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDA7E2823D191005417A1 /* ChatViewCell.xib */; };
-		971BDA962823D191005417A1 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDA802823D191005417A1 /* ChatListViewController.swift */; };
-		971BDA972823D191005417A1 /* ChatListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDA812823D191005417A1 /* ChatListViewController.xib */; };
-		971BDA982823D191005417A1 /* CreateApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDA832823D191005417A1 /* CreateApplicationController.swift */; };
-		971BDA992823D191005417A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDA852823D191005417A1 /* ViewController.swift */; };
-		971BDA9A2823D191005417A1 /* AppToAppCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDA872823D191005417A1 /* AppToAppCallViewController.swift */; };
-		971BDA9B2823D191005417A1 /* AppToAppCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDA882823D191005417A1 /* AppToAppCallViewController.xib */; };
-		971BDA9C2823D191005417A1 /* AppListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDA8A2823D191005417A1 /* AppListViewController.swift */; };
-		971BDA9D2823D191005417A1 /* ApplicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDA8B2823D191005417A1 /* ApplicationModel.swift */; };
-		971BDA9E2823D191005417A1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDA8D2823D191005417A1 /* LoginViewController.xib */; };
-		971BDA9F2823D191005417A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDA8E2823D191005417A1 /* LoginViewController.swift */; };
-		971BDAA02823D191005417A1 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDA902823D191005417A1 /* TasksViewController.swift */; };
-		971BDAA12823D191005417A1 /* TasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDA912823D191005417A1 /* TasksViewController.xib */; };
+		971BDAC82825A488005417A1 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDAAE2825A488005417A1 /* ChatViewController.swift */; };
+		971BDAC92825A488005417A1 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDAAF2825A488005417A1 /* ChatViewController.xib */; };
+		971BDACA2825A488005417A1 /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDAB12825A488005417A1 /* ChatViewCell.swift */; };
+		971BDACB2825A488005417A1 /* ChatViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDAB22825A488005417A1 /* ChatViewCell.xib */; };
+		971BDACC2825A488005417A1 /* MemberViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDAB32825A488005417A1 /* MemberViewController.xib */; };
+		971BDACD2825A488005417A1 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDAB42825A488005417A1 /* MemberViewController.swift */; };
+		971BDACE2825A488005417A1 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDAB62825A488005417A1 /* ChatListViewController.swift */; };
+		971BDACF2825A488005417A1 /* ChatListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDAB72825A488005417A1 /* ChatListViewController.xib */; };
+		971BDAD02825A488005417A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDAB92825A488005417A1 /* ViewController.swift */; };
+		971BDAD12825A488005417A1 /* AppToAppCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDABB2825A488005417A1 /* AppToAppCallViewController.swift */; };
+		971BDAD22825A488005417A1 /* AppToAppCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDABC2825A488005417A1 /* AppToAppCallViewController.xib */; };
+		971BDAD32825A488005417A1 /* CreateApplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDABF2825A488005417A1 /* CreateApplicationController.swift */; };
+		971BDAD42825A488005417A1 /* AppListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDAC02825A488005417A1 /* AppListViewController.swift */; };
+		971BDAD52825A488005417A1 /* ApplicationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDAC12825A488005417A1 /* ApplicationModel.swift */; };
+		971BDAD62825A488005417A1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDAC32825A488005417A1 /* LoginViewController.xib */; };
+		971BDAD72825A488005417A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDAC42825A488005417A1 /* LoginViewController.swift */; };
+		971BDAD82825A488005417A1 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDAC62825A488005417A1 /* TasksViewController.swift */; };
+		971BDAD92825A488005417A1 /* TasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDAC72825A488005417A1 /* TasksViewController.xib */; };
 		97483995281E94C600CEB949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97483994281E94C600CEB949 /* AppDelegate.swift */; };
 		97483997281E94C600CEB949 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97483996281E94C600CEB949 /* SceneDelegate.swift */; };
 		9748399C281E94C600CEB949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9748399A281E94C600CEB949 /* Main.storyboard */; };
@@ -63,22 +65,24 @@
 		5EA3A34450894B0EA9893E1B /* Pods-ClientSDK_iOSAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClientSDK_iOSAppTests.release.xcconfig"; path = "Target Support Files/Pods-ClientSDK_iOSAppTests/Pods-ClientSDK_iOSAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		619958B58D7E16C5A91D448B /* Pods_ClientSDK_iOSApp_ClientSDK_iOSAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClientSDK_iOSApp_ClientSDK_iOSAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C304A0CC526A54D92A8DEE /* Pods-ClientSDK_iOSApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClientSDK_iOSApp.debug.xcconfig"; path = "Target Support Files/Pods-ClientSDK_iOSApp/Pods-ClientSDK_iOSApp.debug.xcconfig"; sourceTree = "<group>"; };
-		971BDA7A2823D191005417A1 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		971BDA7B2823D191005417A1 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
-		971BDA7D2823D191005417A1 /* ChatViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
-		971BDA7E2823D191005417A1 /* ChatViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewCell.xib; sourceTree = "<group>"; };
-		971BDA802823D191005417A1 /* ChatListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
-		971BDA812823D191005417A1 /* ChatListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatListViewController.xib; sourceTree = "<group>"; };
-		971BDA832823D191005417A1 /* CreateApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateApplicationController.swift; sourceTree = "<group>"; };
-		971BDA852823D191005417A1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		971BDA872823D191005417A1 /* AppToAppCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppToAppCallViewController.swift; sourceTree = "<group>"; };
-		971BDA882823D191005417A1 /* AppToAppCallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppToAppCallViewController.xib; sourceTree = "<group>"; };
-		971BDA8A2823D191005417A1 /* AppListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppListViewController.swift; sourceTree = "<group>"; };
-		971BDA8B2823D191005417A1 /* ApplicationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModel.swift; sourceTree = "<group>"; };
-		971BDA8D2823D191005417A1 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		971BDA8E2823D191005417A1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		971BDA902823D191005417A1 /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
-		971BDA912823D191005417A1 /* TasksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TasksViewController.xib; sourceTree = "<group>"; };
+		971BDAAE2825A488005417A1 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		971BDAAF2825A488005417A1 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		971BDAB12825A488005417A1 /* ChatViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
+		971BDAB22825A488005417A1 /* ChatViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewCell.xib; sourceTree = "<group>"; };
+		971BDAB32825A488005417A1 /* MemberViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberViewController.xib; sourceTree = "<group>"; };
+		971BDAB42825A488005417A1 /* MemberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
+		971BDAB62825A488005417A1 /* ChatListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
+		971BDAB72825A488005417A1 /* ChatListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatListViewController.xib; sourceTree = "<group>"; };
+		971BDAB92825A488005417A1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		971BDABB2825A488005417A1 /* AppToAppCallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppToAppCallViewController.swift; sourceTree = "<group>"; };
+		971BDABC2825A488005417A1 /* AppToAppCallViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppToAppCallViewController.xib; sourceTree = "<group>"; };
+		971BDABF2825A488005417A1 /* CreateApplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateApplicationController.swift; sourceTree = "<group>"; };
+		971BDAC02825A488005417A1 /* AppListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppListViewController.swift; sourceTree = "<group>"; };
+		971BDAC12825A488005417A1 /* ApplicationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationModel.swift; sourceTree = "<group>"; };
+		971BDAC32825A488005417A1 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		971BDAC42825A488005417A1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		971BDAC62825A488005417A1 /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		971BDAC72825A488005417A1 /* TasksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TasksViewController.xib; sourceTree = "<group>"; };
 		97483991281E94C600CEB949 /* ClientSDK_iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClientSDK_iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97483994281E94C600CEB949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97483996281E94C600CEB949 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,105 +152,107 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		971BDA772823D191005417A1 /* Scenes */ = {
+		971BDAAB2825A487005417A1 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				971BDA782823D191005417A1 /* AppToAppChat */,
-				971BDA822823D191005417A1 /* Create Application */,
-				971BDA842823D191005417A1 /* HomeScreen */,
-				971BDA862823D191005417A1 /* AppToAppCall */,
-				971BDA892823D191005417A1 /* AppList */,
-				971BDA8C2823D191005417A1 /* LoginView */,
-				971BDA8F2823D191005417A1 /* TasksOptionsView */,
+				971BDAAC2825A488005417A1 /* AppToAppChat */,
+				971BDAB82825A488005417A1 /* HomeScreen */,
+				971BDABA2825A488005417A1 /* AppToAppCall */,
+				971BDABD2825A488005417A1 /* AppList */,
+				971BDAC22825A488005417A1 /* LoginView */,
+				971BDAC52825A488005417A1 /* TasksOptionsView */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		971BDA782823D191005417A1 /* AppToAppChat */ = {
+		971BDAAC2825A488005417A1 /* AppToAppChat */ = {
 			isa = PBXGroup;
 			children = (
-				971BDA792823D191005417A1 /* ChatView */,
-				971BDA7F2823D191005417A1 /* ChatsListView */,
+				971BDAAD2825A488005417A1 /* ChatView */,
+				971BDAB52825A488005417A1 /* ChatsListView */,
 			);
 			path = AppToAppChat;
 			sourceTree = "<group>";
 		};
-		971BDA792823D191005417A1 /* ChatView */ = {
+		971BDAAD2825A488005417A1 /* ChatView */ = {
 			isa = PBXGroup;
 			children = (
-				971BDA7A2823D191005417A1 /* ChatViewController.swift */,
-				971BDA7B2823D191005417A1 /* ChatViewController.xib */,
-				971BDA7C2823D191005417A1 /* ChatViewCell */,
+				971BDAAE2825A488005417A1 /* ChatViewController.swift */,
+				971BDAAF2825A488005417A1 /* ChatViewController.xib */,
+				971BDAB02825A488005417A1 /* ChatViewCell */,
+				971BDAB32825A488005417A1 /* MemberViewController.xib */,
+				971BDAB42825A488005417A1 /* MemberViewController.swift */,
 			);
 			path = ChatView;
 			sourceTree = "<group>";
 		};
-		971BDA7C2823D191005417A1 /* ChatViewCell */ = {
+		971BDAB02825A488005417A1 /* ChatViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				971BDA7D2823D191005417A1 /* ChatViewCell.swift */,
-				971BDA7E2823D191005417A1 /* ChatViewCell.xib */,
+				971BDAB12825A488005417A1 /* ChatViewCell.swift */,
+				971BDAB22825A488005417A1 /* ChatViewCell.xib */,
 			);
 			path = ChatViewCell;
 			sourceTree = "<group>";
 		};
-		971BDA7F2823D191005417A1 /* ChatsListView */ = {
+		971BDAB52825A488005417A1 /* ChatsListView */ = {
 			isa = PBXGroup;
 			children = (
-				971BDA802823D191005417A1 /* ChatListViewController.swift */,
-				971BDA812823D191005417A1 /* ChatListViewController.xib */,
+				971BDAB62825A488005417A1 /* ChatListViewController.swift */,
+				971BDAB72825A488005417A1 /* ChatListViewController.xib */,
 			);
 			path = ChatsListView;
 			sourceTree = "<group>";
 		};
-		971BDA822823D191005417A1 /* Create Application */ = {
+		971BDAB82825A488005417A1 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				971BDA832823D191005417A1 /* CreateApplicationController.swift */,
-			);
-			path = "Create Application";
-			sourceTree = "<group>";
-		};
-		971BDA842823D191005417A1 /* HomeScreen */ = {
-			isa = PBXGroup;
-			children = (
-				971BDA852823D191005417A1 /* ViewController.swift */,
+				971BDAB92825A488005417A1 /* ViewController.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
-		971BDA862823D191005417A1 /* AppToAppCall */ = {
+		971BDABA2825A488005417A1 /* AppToAppCall */ = {
 			isa = PBXGroup;
 			children = (
-				971BDA872823D191005417A1 /* AppToAppCallViewController.swift */,
-				971BDA882823D191005417A1 /* AppToAppCallViewController.xib */,
+				971BDABB2825A488005417A1 /* AppToAppCallViewController.swift */,
+				971BDABC2825A488005417A1 /* AppToAppCallViewController.xib */,
 			);
 			path = AppToAppCall;
 			sourceTree = "<group>";
 		};
-		971BDA892823D191005417A1 /* AppList */ = {
+		971BDABD2825A488005417A1 /* AppList */ = {
 			isa = PBXGroup;
 			children = (
-				971BDA8A2823D191005417A1 /* AppListViewController.swift */,
-				971BDA8B2823D191005417A1 /* ApplicationModel.swift */,
+				971BDABE2825A488005417A1 /* Create Application */,
+				971BDAC02825A488005417A1 /* AppListViewController.swift */,
+				971BDAC12825A488005417A1 /* ApplicationModel.swift */,
 			);
 			path = AppList;
 			sourceTree = "<group>";
 		};
-		971BDA8C2823D191005417A1 /* LoginView */ = {
+		971BDABE2825A488005417A1 /* Create Application */ = {
 			isa = PBXGroup;
 			children = (
-				971BDA8D2823D191005417A1 /* LoginViewController.xib */,
-				971BDA8E2823D191005417A1 /* LoginViewController.swift */,
+				971BDABF2825A488005417A1 /* CreateApplicationController.swift */,
+			);
+			path = "Create Application";
+			sourceTree = "<group>";
+		};
+		971BDAC22825A488005417A1 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				971BDAC32825A488005417A1 /* LoginViewController.xib */,
+				971BDAC42825A488005417A1 /* LoginViewController.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
 		};
-		971BDA8F2823D191005417A1 /* TasksOptionsView */ = {
+		971BDAC52825A488005417A1 /* TasksOptionsView */ = {
 			isa = PBXGroup;
 			children = (
-				971BDA902823D191005417A1 /* TasksViewController.swift */,
-				971BDA912823D191005417A1 /* TasksViewController.xib */,
+				971BDAC62825A488005417A1 /* TasksViewController.swift */,
+				971BDAC72825A488005417A1 /* TasksViewController.xib */,
 			);
 			path = TasksOptionsView;
 			sourceTree = "<group>";
@@ -276,7 +282,7 @@
 		97483993281E94C600CEB949 /* ClientSDK_iOSApp */ = {
 			isa = PBXGroup;
 			children = (
-				971BDA772823D191005417A1 /* Scenes */,
+				971BDAAB2825A487005417A1 /* Scenes */,
 				974839C4281E94E600CEB949 /* Uitilities */,
 				97483994281E94C600CEB949 /* AppDelegate.swift */,
 				97483996281E94C600CEB949 /* SceneDelegate.swift */,
@@ -422,15 +428,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				971BDA9E2823D191005417A1 /* LoginViewController.xib in Resources */,
+				971BDACC2825A488005417A1 /* MemberViewController.xib in Resources */,
 				974839A1281E94C700CEB949 /* LaunchScreen.storyboard in Resources */,
 				9748399E281E94C700CEB949 /* Assets.xcassets in Resources */,
-				971BDA972823D191005417A1 /* ChatListViewController.xib in Resources */,
-				971BDA9B2823D191005417A1 /* AppToAppCallViewController.xib in Resources */,
-				971BDA932823D191005417A1 /* ChatViewController.xib in Resources */,
-				971BDA952823D191005417A1 /* ChatViewCell.xib in Resources */,
+				971BDAD92825A488005417A1 /* TasksViewController.xib in Resources */,
+				971BDACF2825A488005417A1 /* ChatListViewController.xib in Resources */,
+				971BDAC92825A488005417A1 /* ChatViewController.xib in Resources */,
+				971BDACB2825A488005417A1 /* ChatViewCell.xib in Resources */,
 				9748399C281E94C600CEB949 /* Main.storyboard in Resources */,
-				971BDAA12823D191005417A1 /* TasksViewController.xib in Resources */,
+				971BDAD22825A488005417A1 /* AppToAppCallViewController.xib in Resources */,
+				971BDAD62825A488005417A1 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,20 +548,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				971BDA982823D191005417A1 /* CreateApplicationController.swift in Sources */,
-				971BDA942823D191005417A1 /* ChatViewCell.swift in Sources */,
+				971BDAD72825A488005417A1 /* LoginViewController.swift in Sources */,
+				971BDACA2825A488005417A1 /* ChatViewCell.swift in Sources */,
+				971BDAD82825A488005417A1 /* TasksViewController.swift in Sources */,
+				971BDACD2825A488005417A1 /* MemberViewController.swift in Sources */,
+				971BDAD42825A488005417A1 /* AppListViewController.swift in Sources */,
+				971BDACE2825A488005417A1 /* ChatListViewController.swift in Sources */,
+				971BDAD02825A488005417A1 /* ViewController.swift in Sources */,
+				971BDAD12825A488005417A1 /* AppToAppCallViewController.swift in Sources */,
 				974839C8281E94E600CEB949 /* Extensions.swift in Sources */,
-				971BDAA02823D191005417A1 /* TasksViewController.swift in Sources */,
-				971BDA992823D191005417A1 /* ViewController.swift in Sources */,
-				971BDA9A2823D191005417A1 /* AppToAppCallViewController.swift in Sources */,
+				971BDAD52825A488005417A1 /* ApplicationModel.swift in Sources */,
 				974839C7281E94E600CEB949 /* NetworkLayer.swift in Sources */,
-				971BDA9D2823D191005417A1 /* ApplicationModel.swift in Sources */,
-				971BDA9C2823D191005417A1 /* AppListViewController.swift in Sources */,
 				97483995281E94C600CEB949 /* AppDelegate.swift in Sources */,
-				971BDA962823D191005417A1 /* ChatListViewController.swift in Sources */,
-				971BDA922823D191005417A1 /* ChatViewController.swift in Sources */,
-				971BDA9F2823D191005417A1 /* LoginViewController.swift in Sources */,
+				971BDAC82825A488005417A1 /* ChatViewController.swift in Sources */,
 				97483997281E94C600CEB949 /* SceneDelegate.swift in Sources */,
+				971BDAD32825A488005417A1 /* CreateApplicationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

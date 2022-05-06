@@ -16,38 +16,32 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = .init(title: "Apps", style: .plain, target: self, action: #selector(showApps))
         // Do any additional setup after loading the view.
     }
-    
-    
-    @IBAction func nextButtonTapped(_ sender: Any) {
-        guard //let url = URL(string: "https://api.nexmo.com/v2/applications"),
-              let apiKey = apiKeyTextField.text,
-              let apisecret = apiSecretTextField.text else {
-            print("No data found")
+
+    @objc private func showApps() {
+        guard let key = apiKeyTextField.text, !key.isEmpty,
+              let sec = apiSecretTextField.text, !sec.isEmpty else {
+            showOkeyAlert(title: "Alert", message: "Please API key and Secret to proceed")
             return
         }
+        AppManager.shared.apiSecret = sec
+        AppManager.shared.apiKey = key
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: "AppListViewController") else {
+            return
+        }
+        navigationController?.pushViewController(controller, animated: true)
+    }
     
+    @IBAction func nextButtonTapped(_ sender: Any) {
         navigationController?.pushViewController(TasksViewController(), animated: true)
-        AppManager.shared.apiSecret = apisecret
-        AppManager.shared.apiKey = apiKey
-        
-//        networkLayer.getRequest(url: url) { (result: Result<AppList, HTTPErrors>) in
-//            switch result {
-//            case .success(let value):
-//                DispatchQueue.main.async {
-//                    if let vc = self.storyboard?.instantiateViewController(identifier: "AppListViewController") as? AppListViewController {
-//                        vc.dataList = value._embedded?.applications
-//                        self.navigationController?.pushViewController(vc, animated: true)
-//                    }
-//                }
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
     }
 }
+
 typealias AlertAction = (name: String, type: UIAlertAction.Style, callBack: ((UIAlertAction) -> Void)?)
+typealias InputAlertAction = (name: String, callBack: ((String?) -> Void)?)
+
 extension UIViewController {
     func showAlert(title: String? = "Alert", message: String, actions: [AlertAction]) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -57,7 +51,22 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
 
-    func showOkeyAlert(title: String? = nil, message: String) {
-        showAlert(title: title, message: message, actions: [("OK", .default, nil)])
+    func showOkeyAlert(title: String? = nil, message: String, handler: ((UIAlertAction) -> Void)? = nil) {
+        showAlert(title: title, message: message, actions: [("OK", .default, handler)])
+    }
+
+    func showInputAlert(title: String? = nil, message: String?,
+                        placeholder: String = "..", text: String? = nil,
+                        handler: InputAlertAction) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(.init(title: "Cancel", style: .destructive, handler: nil))
+        alert.addAction(.init(title: handler.name, style: .default, handler: {[unowned alert] _ in
+            handler.callBack?(alert.textFields?.first?.text)
+        }))
+        alert.addTextField { field in
+            field.placeholder = placeholder
+            field.text = text
+        }
+        navigationController?.present(alert, animated: true, completion: nil)
     }
 }

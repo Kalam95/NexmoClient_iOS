@@ -10,7 +10,7 @@ import UIKit
 class CreateApplicationController: UIViewController {
 
     @IBOutlet weak var nameTextView: UITextField!
-    private var networklayer = NetworkLayer()
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,13 +19,7 @@ class CreateApplicationController: UIViewController {
     }
 
     func createApp() {
-        guard let url = URL(string: "https://api.nexmo.com/v2/applications"),
-              let name = nameTextView.text, !name.isEmpty else {
-            return
-        }
-        networklayer.postRequest(url: url, parameters: ["name": name]) { (result: Result<Application, HTTPErrors>) in
-            print(result)
-        }
+        
     }
     
 

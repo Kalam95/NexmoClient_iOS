@@ -60,10 +60,8 @@ class ChatViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidHideNotification, object: nil, queue: .main) { [weak self] _ in
             self?.bottomConstraint.constant = 0
         }
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "Invite", style: .plain,
-                                                              target: self, action: #selector(invite)),
-                                              UIBarButtonItem(title: "Members", style: .plain,
-                                                              target: self, action: #selector(navigateToMembers))]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Members", style: .plain,
+                                                              target: self, action: #selector(navigateToMembers))
         conversation.getEventsPage(withSize: 100, order: .asc) { [weak self] error, events in
             DispatchQueue.main.async {
                 guard let events = events else {
@@ -78,7 +76,9 @@ class ChatViewController: UIViewController {
     
 
     @objc func navigateToMembers() {
-        // Members
+        navigationController?.pushViewController(MemberViewController(conversation: conversation,
+                                                                      user: user),
+                                                 animated: true)
     }
 
     @IBAction func sendButtonTapped(_ sender: Any) {

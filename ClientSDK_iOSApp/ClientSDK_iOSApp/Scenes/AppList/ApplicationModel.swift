@@ -23,6 +23,7 @@ struct Application: Decodable {
     var id: String?
     var name: String?
     var capabilities: Capabilities?
+    var keys: Keys?
 }
 
 struct Capabilities: Decodable {
@@ -37,6 +38,11 @@ struct Webhooks: Decodable {
     var event_url: WebhookURL?
     var answer_url: WebhookURL?
     var fallback_answer_url: WebhookURL?
+}
+
+struct Keys: Decodable {
+    var private_key: String?
+    var public_key: String?
 }
 
 struct WebhookURL: Decodable {
@@ -60,3 +66,4 @@ class AppManager {
         
     }
 }
+
