@@ -10,28 +10,56 @@ import UIKit
 class AppListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var dataList: [Application]?
-    
+    private var dataList: [Application]?
+    private var networklayer = NetworkLayer()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "App List"
         tableView.register(DefaultTableviewCell.self, forCellReuseIdentifier: "Default")
-        // Do any additional setup after loading the view.
+        getApps()
+        navigationItem.rightBarButtonItem = .init(title: " + ", style: .plain, target: self, action: #selector(createNewButtonTapped))
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func getApps() {
+        guard let url = URL(string: "https://api.nexmo.com/v2/applications") else { return }
+        networklayer.getRequest(url: url) { [weak self] (result: Result<AppList, HTTPErrors>) in
+            switch result {
+            case .success(let value):
+                self?.dataList = value._embedded?.applications
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self?.showOkeyAlert(title: "Error!", message: error.localizedDescription)
+                }
+            }
+        }
     }
-    */
 
-    @IBAction func createNewButtonTapped(_ sender: Any) {
-        
+    @objc private func createNewButtonTapped() {
+        showInputAlert(title: "Creat App", message: "Enter a name for the app, to be created.", handler: ("Create", {[weak self] name in
+            guard let name = name, name.isEmpty else {
+                self?.showOkeyAlert(message: "Please!!! Enter a valid name of the app.")
+                return
+            }
+            guard let url = URL(string: "https://api.nexmo.com/v2/applications") else { return }
+            self?.networklayer.postRequest(url: url, parameters: ["name": name]) { (result: Result<Application, HTTPErrors>) in
+                let message: String
+                switch result {
+                case .success(let value):
+                    print(value.keys ?? "")
+                    message = "Application created Successfully"
+                    self?.getApps()
+                case .failure(let error):
+                    message = error.localizedDescription
+                }
+                DispatchQueue.main.async {
+                    self?.showOkeyAlert(message: message)
+                }
+            }
+        }))
     }
 }
 
