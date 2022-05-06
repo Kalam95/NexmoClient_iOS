@@ -1,0 +1,20 @@
+PODS:
+  - NexmoClient (4.2.1):
+    - VonageWebRTC (= 84.0.22)
+  - VonageWebRTC (84.0.22)
+
+DEPENDENCIES:
+  - NexmoClient
+
+SPEC REPOS:
+  trunk:
+    - NexmoClient
+    - VonageWebRTC
+
+SPEC CHECKSUMS:
+  NexmoClient: 8b6371e122ceb17f0d8d4a3db3b709bdb3a32204
+  VonageWebRTC: 035f3a68ed821344b2fba6c7baa086f350e0a277
+
+PODFILE CHECKSUM: 3b79c9481eeb828be5c62db70987ffd432b57c04
+
+COCOAPODS: 1.11.3
