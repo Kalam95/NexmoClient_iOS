@@ -21,11 +21,25 @@ class NetworkLayer {
 
     func getRequest<T: Decodable>(url: URL,
                                   headers: [String: String] = AppManager.shared.basicHeaders,
+                                  parameters: [String: String] = [:],
                                   completion: @escaping (Result<T, HTTPErrors>) -> Void ) {
         let session = URLSession.shared
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        if !parameters.isEmpty {
+            parameters.forEach { (key, value) in
+                urlComponents?.queryItems = [
+                    URLQueryItem(name: key, value: value)
+                ]
+            }
+        }
+        guard let url = urlComponents?.url else {
+            completion(.failure(.badURL))
+            return
+        }
         var request = URLRequest(url: url)
         request.allHTTPHeaderFields = headers
         request.httpMethod = "GET"
+
         
         task = session.dataTask(with: request, completionHandler: { data, response, error in
             guard let data = data, error == nil else {

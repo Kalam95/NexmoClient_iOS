@@ -48,7 +48,6 @@ class ChatViewController: UIViewController {
         messageTextField.layer.borderWidth = 1
         messageTextField.layer.cornerRadius = 5
         conversation.delegate = self
-        conversation.join()
         tableView.register(UINib(nibName: "ChatViewCell", bundle: nil),
                            forCellReuseIdentifier: "ChatViewCell")
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidShowNotification, object: nil, queue: .main) { [weak self] notification in
@@ -60,8 +59,12 @@ class ChatViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidHideNotification, object: nil, queue: .main) { [weak self] _ in
             self?.bottomConstraint.constant = 0
         }
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Members", style: .plain,
-                                                              target: self, action: #selector(navigateToMembers))
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "Members", style: .plain,
+                                                              target: self, action: #selector(navigateToMembers))]
+        if conversation.myMember?.state != .joined {
+            navigationItem.rightBarButtonItems?.append(.init(title: "Join", style: .plain, target: self, action: #selector(join)))
+        }
+        
         conversation.getEventsPage(withSize: 100, order: .asc) { [weak self] error, events in
             DispatchQueue.main.async {
                 guard let events = events else {
@@ -75,7 +78,11 @@ class ChatViewController: UIViewController {
     }
     
 
-    @objc func navigateToMembers() {
+    @objc private func join() {
+        conversation.join()
+    }
+
+    @objc private func navigateToMembers() {
         navigationController?.pushViewController(MemberViewController(conversation: conversation,
                                                                       user: user),
                                                  animated: true)
@@ -92,18 +99,6 @@ class ChatViewController: UIViewController {
                 self.messageTextField.text = ""
             }
         })
-    }
-
-    @objc func invite() {
-        conversation.inviteMember(withUsername: user.partner) { [weak self] error in
-            if let error = error {
-                DispatchQueue.main.async {
-                    self?.showOkeyAlert(message: String(describing: error))
-                }
-                self?.conversation.joinMember(withUsername: self?.user.partner ?? "")
-                return
-            }
-        }
     }
 }
 
@@ -147,7 +142,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatViewCell", for: indexPath) as? ChatViewCell
         let data = dataScource[keys[indexPath.section]]?[indexPath.row] as? NXMMessageEvent
-        let isSender = data?.embeddedInfo?.user.name == user.name
+        let isSender = data?.embeddedInfo?.user.name == user.user
         cell?.setAlignment(isSender)
         cell?.messageLabel.text = data?.text ?? "N/A"
         let name = isSender ? "You" : data?.embeddedInfo?.user.name

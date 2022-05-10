@@ -26,7 +26,7 @@ class AppToAppCallViewController: UIViewController {
     }
 
     required init?(coder: NSCoder) {
-        self.user = .newAlam
+        self.user = .none
         self.task =  .inAppCall
         super.init(coder: coder)
     }
@@ -34,7 +34,6 @@ class AppToAppCallViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         callButton.backgroundColor = .green
-        phoneNumberField.isHidden = task != .phoneCall
         nc.addObserver(self, selector: #selector(didReceiveCall), name: .callReceived, object: nil)
         // Do any additional setup after loading the view.
     }
@@ -47,17 +46,22 @@ class AppToAppCallViewController: UIViewController {
     }
 
     @IBAction func callButtonTapped(_ sender: Any) {
+        
         if call != nil {
             endCall()
             callButton.backgroundColor = .green
             self.callButton.setTitle("call", for: .normal)
             return
         }
-        task == .phoneCall ? phoneNumberCall() : inAppCall()
+        guard let callee = phoneNumberField.text, !callee.isEmpty else {
+            showOkeyAlert(title: "Invalid user", message: "Please enter a valid username/phonenumber to call")
+            return
+        }
+        task == .phoneCall ? phoneNumberCall(name: callee) : inAppCall(name: callee)
     }
 
-    func inAppCall() {
-        client.inAppCall(withCallee: user.partner) { [weak self] error, call in
+    func inAppCall(name: String) {
+        client.inAppCall(withCallee: name) { [weak self] error, call in
             self?.call = call
             call?.setDelegate(self!)
             print(error?.localizedDescription ?? "No error")
@@ -65,9 +69,8 @@ class AppToAppCallViewController: UIViewController {
         }
     }
 
-    func phoneNumberCall() {
-        guard let phone = phoneNumberField.text, !phone.isEmpty else { return }
-        client.serverCall(withCallee: phone, customData: nil) { error, call in
+    func phoneNumberCall(name: String) {
+        client.serverCall(withCallee: name, customData: nil) { error, call in
             self.call = call
             self.updateButton(isActive: call == nil)
         }
@@ -121,7 +124,7 @@ extension AppToAppCallViewController: NXMCallDelegate {
     func call(_ call: NXMCall, didUpdate callMember: NXMMember, with status: NXMCallMemberStatus) {
         switch status {
         case .answered:
-            guard callMember.user.name != self.user.name else { return }
+            guard callMember.user.name != self.user.user else { return }
             callButton.backgroundColor = .red
             callButton.setTitle("Hangup", for: .normal)
         case .rejected, .cancelled, .busy:

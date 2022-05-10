@@ -41,7 +41,15 @@ class ChatListViewController: UIViewController {
     }
 
     @objc func addNewConversation() {
-        client.createConversation(withName: "ConversationInAppChat") { [unowned self] error, conversation in
+        showInputAlert(title: "Chat Name", message: "Enter the name for the chat",
+                       placeholder: "type here..", handler: ("Start", { [weak self] name in
+            self?.sendChatRequest(name: name)
+        }))
+    }
+
+    private func sendChatRequest(name: String?) {
+        let name = name ?? "ConversationInAppChat\(conversationPage?.conversations.count ?? 0)"
+        client.createConversation(withName: name) { [unowned self] error, conversation in
             DispatchQueue.main.async {
                 guard let conversation = conversation else {
                     self.showOkeyAlert(message: error.debugDescription)

@@ -26,6 +26,8 @@
 		971BDAD72825A488005417A1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDAC42825A488005417A1 /* LoginViewController.swift */; };
 		971BDAD82825A488005417A1 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDAC62825A488005417A1 /* TasksViewController.swift */; };
 		971BDAD92825A488005417A1 /* TasksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDAC72825A488005417A1 /* TasksViewController.xib */; };
+		971BDADB282A920D005417A1 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971BDADA282A920D005417A1 /* ProgressView.swift */; };
+		971BDADD282A939A005417A1 /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971BDADC282A939A005417A1 /* ProgressView.xib */; };
 		97483995281E94C600CEB949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97483994281E94C600CEB949 /* AppDelegate.swift */; };
 		97483997281E94C600CEB949 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97483996281E94C600CEB949 /* SceneDelegate.swift */; };
 		9748399C281E94C600CEB949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9748399A281E94C600CEB949 /* Main.storyboard */; };
@@ -83,6 +85,8 @@
 		971BDAC42825A488005417A1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		971BDAC62825A488005417A1 /* TasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		971BDAC72825A488005417A1 /* TasksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TasksViewController.xib; sourceTree = "<group>"; };
+		971BDADA282A920D005417A1 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		971BDADC282A939A005417A1 /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 		97483991281E94C600CEB949 /* ClientSDK_iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClientSDK_iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97483994281E94C600CEB949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97483996281E94C600CEB949 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -242,8 +246,8 @@
 		971BDAC22825A488005417A1 /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
-				971BDAC32825A488005417A1 /* LoginViewController.xib */,
 				971BDAC42825A488005417A1 /* LoginViewController.swift */,
+				971BDAC32825A488005417A1 /* LoginViewController.xib */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -255,6 +259,15 @@
 				971BDAC72825A488005417A1 /* TasksViewController.xib */,
 			);
 			path = TasksOptionsView;
+			sourceTree = "<group>";
+		};
+		971BDADE282A939E005417A1 /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				971BDADA282A920D005417A1 /* ProgressView.swift */,
+				971BDADC282A939A005417A1 /* ProgressView.xib */,
+			);
+			path = ProgressView;
 			sourceTree = "<group>";
 		};
 		97483988281E94C600CEB949 = {
@@ -282,8 +295,8 @@
 		97483993281E94C600CEB949 /* ClientSDK_iOSApp */ = {
 			isa = PBXGroup;
 			children = (
-				971BDAAB2825A487005417A1 /* Scenes */,
 				974839C4281E94E600CEB949 /* Uitilities */,
+				971BDAAB2825A487005417A1 /* Scenes */,
 				97483994281E94C600CEB949 /* AppDelegate.swift */,
 				97483996281E94C600CEB949 /* SceneDelegate.swift */,
 				9748399A281E94C600CEB949 /* Main.storyboard */,
@@ -316,6 +329,7 @@
 			children = (
 				974839C5281E94E600CEB949 /* NetworkLayer.swift */,
 				974839C6281E94E600CEB949 /* Extensions.swift */,
+				971BDADE282A939E005417A1 /* ProgressView */,
 			);
 			path = Uitilities;
 			sourceTree = "<group>";
@@ -438,6 +452,7 @@
 				9748399C281E94C600CEB949 /* Main.storyboard in Resources */,
 				971BDAD22825A488005417A1 /* AppToAppCallViewController.xib in Resources */,
 				971BDAD62825A488005417A1 /* LoginViewController.xib in Resources */,
+				971BDADD282A939A005417A1 /* ProgressView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +576,7 @@
 				974839C7281E94E600CEB949 /* NetworkLayer.swift in Sources */,
 				97483995281E94C600CEB949 /* AppDelegate.swift in Sources */,
 				971BDAC82825A488005417A1 /* ChatViewController.swift in Sources */,
+				971BDADB282A920D005417A1 /* ProgressView.swift in Sources */,
 				97483997281E94C600CEB949 /* SceneDelegate.swift in Sources */,
 				971BDAD32825A488005417A1 /* CreateApplicationController.swift in Sources */,
 			);
