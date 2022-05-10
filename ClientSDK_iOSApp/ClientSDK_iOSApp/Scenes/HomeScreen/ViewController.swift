@@ -35,6 +35,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
-        navigationController?.pushViewController(TasksViewController(), animated: true)
+        navigationController?.pushViewController(LoginViewController(), animated: true)
     }
 }

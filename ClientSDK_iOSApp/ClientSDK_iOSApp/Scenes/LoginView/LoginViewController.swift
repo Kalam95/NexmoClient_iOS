@@ -15,16 +15,6 @@ class LoginViewController: UIViewController {
     let client = NXMClient.shared
     let neworkLayer: NetworkLayer = .init()
     private var user: User!
-    let task: Tasks
-
-    init(task: Tasks) {
-        self.task = task
-        super.init(nibName: String(describing: Self.self), bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("not implemented")
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +63,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: NXMClientDelegate {
     func client(_ client: NXMClient, didChange status: NXMConnectionStatus, reason: NXMConnectionStatusReason) {
         guard status == .connected else { return }
-        pushToNextScreen()
+        navigationController?.pushViewController(TasksViewController(user: user), animated: true)
     }
     
     func client(_ client: NXMClient, didReceiveError error: Error) {
@@ -82,18 +72,6 @@ extension LoginViewController: NXMClientDelegate {
 
     func client(_ client: NXMClient, didReceive call: NXMCall) {
         NotificationCenter.default.post(name: .callReceived, object: call)
-    }
-
-    func pushToNextScreen() {
-        hideLoader()
-        switch task {
-        case .inAppChat:
-            navigationController?.pushViewController(ChatListViewController(user: user),
-                                                     animated: true)
-        case .inAppCall, .phoneCall, .receivePhoneCall:
-            navigationController?.pushViewController(AppToAppCallViewController(user: user, task: task),
-                                                     animated: true)
-        }
     }
 
     func client(_ client: NXMClient, didReceive conversation: NXMConversation) {

@@ -12,6 +12,16 @@ class TasksViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     let tasks = Tasks.allCases
+    private let user: User
+    
+    init(user: User) {
+        self.user = user
+        super.init(nibName: String(describing: Self.self), bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("not Implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +53,15 @@ extension TasksViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = LoginViewController(task: tasks[indexPath.row])
-        navigationController?.pushViewController(viewController, animated: true)
+        let task = tasks[indexPath.row]
+        switch task {
+        case .inAppChat:
+            navigationController?.pushViewController(ChatListViewController(user: user),
+                                                     animated: true)
+        case .inAppCall, .phoneCall, .receivePhoneCall:
+            navigationController?.pushViewController(AppToAppCallViewController(user: user, task: task),
+                                                     animated: true)
+        }
     }
 }
 
