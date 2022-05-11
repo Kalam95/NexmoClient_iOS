@@ -25,6 +25,7 @@ class TasksViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = user.user
         tableView.register(DefaultTableviewCell.self, forCellReuseIdentifier: "Default")
     }
 
@@ -58,24 +59,20 @@ extension TasksViewController: UITableViewDataSource, UITableViewDelegate {
         case .inAppChat:
             navigationController?.pushViewController(ChatListViewController(user: user),
                                                      animated: true)
-        case .inAppCall, .phoneCall, .receivePhoneCall:
-            navigationController?.pushViewController(AppToAppCallViewController(user: user, task: task),
+        case .call:
+            navigationController?.pushViewController(AppToAppCallViewController(user: user),
                                                      animated: true)
         }
     }
 }
 
 enum Tasks: CaseIterable {
-    case inAppCall, phoneCall, receivePhoneCall, inAppChat
+    case call, inAppChat
     
     var rawValue: String {
         switch self {
-        case .inAppCall:
-            return "App to App Call"
-        case .phoneCall:
-            return "App to Phone Call"
-        case .receivePhoneCall:
-            return "Phone to App Call"
+        case .call:
+            return "Call a user or phone"
         case .inAppChat:
             return "In App Chat"
         }

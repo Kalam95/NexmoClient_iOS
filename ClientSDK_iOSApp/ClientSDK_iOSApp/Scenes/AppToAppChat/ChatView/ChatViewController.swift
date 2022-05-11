@@ -16,7 +16,10 @@ class ChatViewController: UIViewController {
     
     private var data: [NXMEvent] = [] {
         willSet {
-            newValue.forEach { element in
+            dataScource = [:]
+            newValue.sorted {
+                $0.creationDate <= $1.creationDate
+            }.forEach { element in
                 let key = element.creationDate.formatted(date: .abbreviated, time: .omitted)
                 self.dataScource[key] = (self.dataScource[key] ?? []) + [element]
             }
@@ -65,7 +68,7 @@ class ChatViewController: UIViewController {
             navigationItem.rightBarButtonItems?.append(.init(title: "Join", style: .plain, target: self, action: #selector(join)))
         }
         
-        conversation.getEventsPage(withSize: 100, order: .asc) { [weak self] error, events in
+        conversation.getEventsPage(withSize: 100, order: .desc) { [weak self] error, events in
             DispatchQueue.main.async {
                 guard let events = events else {
                     self?.showOkeyAlert(message: error?.localizedDescription ?? "Opps!!! Something went wrong")

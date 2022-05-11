@@ -13,26 +13,24 @@ class AppToAppCallViewController: UIViewController {
     @IBOutlet weak var phoneNumberField: UITextField!
     @IBOutlet weak var callButton: UIButton!
     @IBOutlet weak var statusLabel: UILabel!
-    let user: User
-    let client = NXMClient.shared
-    let nc = NotificationCenter.default
-    var call: NXMCall?
-    var task: Tasks
+    private let user: User
+    private let client = NXMClient.shared
+    private let nc = NotificationCenter.default
+    private var call: NXMCall?
 
-    init(user: User, task: Tasks = .inAppCall) {
+    init(user: User) {
         self.user = user
-        self.task = task
         super.init(nibName: String(describing: Self.self), bundle: nil)
     }
 
     required init?(coder: NSCoder) {
         self.user = .none
-        self.task =  .inAppCall
         super.init(coder: coder)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = user.user
         callButton.backgroundColor = .green
         nc.addObserver(self, selector: #selector(didReceiveCall), name: .callReceived, object: nil)
         // Do any additional setup after loading the view.
@@ -46,42 +44,33 @@ class AppToAppCallViewController: UIViewController {
     }
 
     @IBAction func callButtonTapped(_ sender: Any) {
-        
         if call != nil {
             endCall()
-            callButton.backgroundColor = .green
-            self.callButton.setTitle("call", for: .normal)
             return
         }
         guard let callee = phoneNumberField.text, !callee.isEmpty else {
             showOkeyAlert(title: "Invalid user", message: "Please enter a valid username/phonenumber to call")
             return
         }
-        task == .phoneCall ? phoneNumberCall(name: callee) : inAppCall(name: callee)
+        phoneNumberCall(name: callee)
     }
 
-    func inAppCall(name: String) {
-        client.inAppCall(withCallee: name) { [weak self] error, call in
-            self?.call = call
-            call?.setDelegate(self!)
-            print(error?.localizedDescription ?? "No error")
-            self?.updateButton(isActive: call == nil)
-        }
-    }
-
-    func phoneNumberCall(name: String) {
-        client.serverCall(withCallee: name, customData: nil) { error, call in
+    private func phoneNumberCall(name: String) {
+        client.serverCall(withCallee: name, customData: nil) { [weak self] error, call in
+            guard let self = self else { return }
             self.call = call
+            self.call?.setDelegate(self)
             self.updateButton(isActive: call == nil)
         }
     }
 
-    func updateButton(isActive: Bool) {
+    private func updateButton(isActive: Bool) {
         DispatchQueue.main.async {
             self.callButton.backgroundColor = isActive ? .green : .red
-            self.callButton.setTitle(isActive ? "call" : "handUP", for: .normal)
+            self.callButton.setTitle(isActive ? "Call" : "handUP", for: .normal)
         }
     }
+
     private func displayIncomingCallAlert(call: NXMCall) {
         let from = call.myMember?.channel?.from.data ?? "Unknown"
         let alert = UIAlertController(title: "Incoming call from", message: from, preferredStyle: .alert)
@@ -107,7 +96,7 @@ class AppToAppCallViewController: UIViewController {
     @objc private func endCall() {
         call?.hangup()
         call = nil
-        self.callButton.setTitle("call", for: .normal)
+        callButton.setTitle("Call", for: .normal)
         callButton.backgroundColor = .green
     }
 }
@@ -144,7 +133,6 @@ extension AppToAppCallViewController: NXMCallDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-    
 }
 
 extension AppToAppCallViewController: UITextFieldDelegate {
