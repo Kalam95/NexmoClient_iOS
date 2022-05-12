@@ -184,8 +184,8 @@
 				971BDAAE2825A488005417A1 /* ChatViewController.swift */,
 				971BDAAF2825A488005417A1 /* ChatViewController.xib */,
 				971BDAB02825A488005417A1 /* ChatViewCell */,
-				971BDAB32825A488005417A1 /* MemberViewController.xib */,
 				971BDAB42825A488005417A1 /* MemberViewController.swift */,
+				971BDAB32825A488005417A1 /* MemberViewController.xib */,
 			);
 			path = ChatView;
 			sourceTree = "<group>";
