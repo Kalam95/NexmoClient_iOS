@@ -12,9 +12,20 @@ class TasksViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     let tasks = Tasks.allCases
+    private let user: User
+    
+    init(user: User) {
+        self.user = user
+        super.init(nibName: String(describing: Self.self), bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("not Implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = user.user
         tableView.register(DefaultTableviewCell.self, forCellReuseIdentifier: "Default")
     }
 
@@ -43,22 +54,25 @@ extension TasksViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = LoginViewController(task: tasks[indexPath.row])
-        navigationController?.pushViewController(viewController, animated: true)
+        let task = tasks[indexPath.row]
+        switch task {
+        case .inAppChat:
+            navigationController?.pushViewController(ChatListViewController(user: user),
+                                                     animated: true)
+        case .call:
+            navigationController?.pushViewController(AppToAppCallViewController(user: user),
+                                                     animated: true)
+        }
     }
 }
 
 enum Tasks: CaseIterable {
-    case inAppCall, phoneCall, receivePhoneCall, inAppChat
+    case call, inAppChat
     
     var rawValue: String {
         switch self {
-        case .inAppCall:
-            return "App to App Call"
-        case .phoneCall:
-            return "App to Phone Call"
-        case .receivePhoneCall:
-            return "Phone to App Call"
+        case .call:
+            return "Call a user or phone"
         case .inAppChat:
             return "In App Chat"
         }

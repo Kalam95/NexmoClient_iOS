@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UniversalApp_swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ClientSDK_iOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,7 +106,7 @@
         <!--App List View Controller-->
         <scene sceneID="oxs-vk-YBU">
             <objects>
-                <viewController storyboardIdentifier="AppListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IHH-qO-Ual" customClass="AppListViewController" customModule="UniversalApp_swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AppListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IHH-qO-Ual" customClass="AppListViewController" customModule="ClientSDK_iOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BPg-O3-bDw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,7 +148,7 @@
         <!--Create Application Controller-->
         <scene sceneID="acJ-Lc-Xsd">
             <objects>
-                <viewController id="JGm-sv-xgI" customClass="CreateApplicationController" customModule="UniversalApp_swift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JGm-sv-xgI" customClass="CreateApplicationController" customModule="ClientSDK_iOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ycg-yL-ncj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

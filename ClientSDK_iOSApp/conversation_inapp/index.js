@@ -1,16 +1,20 @@
 'use strict';
 
 const status = require("statuses")
-
+const apis = require("./Apis")
 const express = require("express")
 const axios = require("axios")
 const localtunnel = require("localtunnel")
 const { exec } = require("child_process");
 const { test } = require("media-typer");
-
+const route = require("color-convert/route");
+//conversation-api-function config-new -a a698c860 -s 6eb37419d0f6c497 -l 447418999066
 const app = express()
 
 app.use(express.json())
+
+const CS_URL = `https://api.nexmo.com`;
+const WS_URL = `https://ws.nexmo.com`;
 
 let apiKey = "aa243601"
 let apiSec = "5kRuupsyevNjaKyy"
@@ -22,11 +26,15 @@ const tunnelURL = async () => {
     console.log(res.url)
     return res.url
 }
-let abc = ""
+
 app.get("/start", (request, response) => {
     console.log(request.body)
     response.send({ status: 200 })
-    abc = "jshdgakghfhjkae"
+})
+app.post("/login", (req, res)=>{
+    console.log(req.body)
+    
+    res.send("okey")
 })
 app.post("/setApp", (request, response) => {
     apiKey = request.body.apiKey

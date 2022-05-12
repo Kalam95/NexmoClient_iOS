@@ -10,8 +10,6 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         AVAudioSession.sharedInstance().requestRecordPermission { (granted:Bool) in
             print("Allow microphone use. Response: %d", granted)
