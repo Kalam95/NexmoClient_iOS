@@ -17,7 +17,6 @@ class AppToAppCallViewController: UIViewController {
     private let client = NXMClient.shared
     private let nc = NotificationCenter.default
     private var call: NXMCall?
-
     init(user: User) {
         self.user = user
         super.init(nibName: String(describing: Self.self), bundle: nil)
@@ -116,11 +115,9 @@ extension AppToAppCallViewController: NXMCallDelegate {
             guard callMember.user.name != self.user.user else { return }
             callButton.backgroundColor = .red
             callButton.setTitle("Hangup", for: .normal)
-        case .rejected, .cancelled, .busy:
+        case .rejected, .cancelled, .busy, .completed:
             callButton.backgroundColor = .green
             callButton.setTitle("Call", for: .normal)
-        case .completed:
-            self.call = nil
         default:
             break
         }
