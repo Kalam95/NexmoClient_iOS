@@ -80,6 +80,8 @@
                     <constraint firstAttribute="bottom" secondItem="ZYm-t6-Jkt" secondAttribute="bottom" constant="10" id="Ejl-tE-fwz"/>
                     <constraint firstAttribute="trailing" secondItem="ZYm-t6-Jkt" secondAttribute="trailing" constant="20" id="Hqf-kN-05F"/>
                     <constraint firstItem="ZYm-t6-Jkt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="NrF-dG-IFp"/>
+                    <constraint firstItem="ZYm-t6-Jkt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="UsF-9s-pp4"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ZYm-t6-Jkt" secondAttribute="trailing" constant="20" id="hPd-Cv-FAA"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

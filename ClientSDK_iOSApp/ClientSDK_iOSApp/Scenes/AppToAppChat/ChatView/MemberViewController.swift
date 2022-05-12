@@ -32,7 +32,7 @@ class MemberViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Invite", style: .plain,
                                                               target: self, action: #selector(invite))
         conversation.getMembersPage(withPageSize: 100, order: .asc) { [weak self] error, page in
-            self?.members = page?.memberSummaries.filter { $0.state != .joined } ?? []
+            self?.members = page?.memberSummaries.filter { $0.state == .joined } ?? []
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }

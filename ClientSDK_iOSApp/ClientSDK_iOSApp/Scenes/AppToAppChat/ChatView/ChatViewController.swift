@@ -13,7 +13,17 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var messageTextField: UITextView!
-    
+
+    private let client = NXMClient.shared
+    private let user: User
+    private var conversation: NXMConversation
+    private var mediaFlag = false
+    private var keys: [String] = []
+    private var dataScource: [String: [NXMEvent]] = [:] {
+        willSet {
+            keys = newValue.keys.reversed()
+        }
+    }
     private var data: [NXMEvent] = [] {
         willSet {
             dataScource = [:]
@@ -25,19 +35,11 @@ class ChatViewController: UIViewController {
             }
         }
     }
-    private let client = NXMClient.shared
-    private let user: User
-    private var conversation: NXMConversation
-    private var dataScource: [String: [NXMEvent]] = [:] {
-        willSet {
-            keys = newValue.keys.reversed()
-        }
-    }
-    private var keys: [String] = []
     
     init(user: User, conversation: NXMConversation) {
         self.user = user
         self.conversation = conversation
+        print("converstaionID: ", conversation.uuid)
         super.init(nibName: String(describing: Self.self), bundle: nil)
     }
 
@@ -62,27 +64,39 @@ class ChatViewController: UIViewController {
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardDidHideNotification, object: nil, queue: .main) { [weak self] _ in
             self?.bottomConstraint.constant = 0
         }
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "Members", style: .plain,
-                                                              target: self, action: #selector(navigateToMembers))]
+        navigationItem.rightBarButtonItems = [.init(title: "Members", style: .plain, target: self,
+                                                    action: #selector(navigateToMembers)),
+                                              .init(title: "Media", style: .plain, target: self,
+                                                    action: #selector(updateMedia))]
         if conversation.myMember?.state != .joined {
             navigationItem.rightBarButtonItems?.append(.init(title: "Join", style: .plain, target: self, action: #selector(join)))
         }
-        
+        conversation.enableMedia()
         conversation.getEventsPage(withSize: 100, order: .desc) { [weak self] error, events in
             DispatchQueue.main.async {
                 guard let events = events else {
                     self?.showOkeyAlert(message: error?.localizedDescription ?? "Opps!!! Something went wrong")
                     return
                 }
-                self?.data = events.events.compactMap { $0 as? NXMMessageEvent }
+                self?.data = events.events.filter { (($0 as? NXMMessageEvent) ?? ($0 as? NXMTextEvent)) != nil }
                 self?.tableView.reloadData()
             }
         }
     }
-    
+
+    @objc private func updateMedia() {
+        if mediaFlag {
+            conversation.disableMedia()
+            mediaFlag = false
+        } else {
+            conversation.enableMedia()
+            mediaFlag = true
+        }
+    }
 
     @objc private func join() {
         conversation.join()
+        navigationItem.rightBarButtonItems?.removeAll(where: { $0.title == "Join" })
     }
 
     @objc private func navigateToMembers() {
@@ -131,6 +145,9 @@ extension ChatViewController: NXMConversationDelegate {
     func conversation(_ conversation: NXMConversation, onMediaConnectionStateChange state: NXMMediaConnectionStatus, legId: String) {
         print("test")
     }
+    func conversation(_ conversation: NXMConversation, didReceive event: NXMMediaEvent) {
+        print(event.type, event)
+    }
 }
 
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
@@ -145,10 +162,11 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatViewCell", for: indexPath) as? ChatViewCell
         let data = dataScource[keys[indexPath.section]]?[indexPath.row] as? NXMMessageEvent
+        let data2 = dataScource[keys[indexPath.section]]?[indexPath.row] as? NXMTextEvent
         let isSender = data?.embeddedInfo?.user.name == user.user
         cell?.setAlignment(isSender)
-        cell?.messageLabel.text = data?.text ?? "N/A"
-        let name = isSender ? "You" : data?.embeddedInfo?.user.name
+        cell?.messageLabel.text = data?.text ?? data2?.text ?? "N/A"
+        let name = isSender ? "You" : data?.embeddedInfo?.user.name ?? data2?.embeddedInfo?.user.name
         cell?.senderLabel.text = "By: \(name ?? "N/A")"
         cell?.dateLabel.text = data?.creationDate.formatted(date: .omitted, time: .shortened)
         return cell ?? UITableViewCell()
@@ -160,6 +178,10 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         label.text = keys[section]
         label.sizeToFit()
         return label
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
     }
 }
 
